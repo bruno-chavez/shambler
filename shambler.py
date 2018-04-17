@@ -15,6 +15,7 @@ def json_line(original_line, key):
     new_line = '"' + key + '": "' + original_line + '"'
     return new_line
 
+
 # Eliminates the new-line character from all the list elements one at a time.
 counter1 = 0
 while counter1 < len(original_file_list):
@@ -53,3 +54,5 @@ while counter3 < len(original_file_list):
 
 json_file.write("]")
 json_file.close()
+
+print(json_file_name + ".json" + " created successfully, placed right next to " + original_file_name)
