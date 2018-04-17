@@ -2,6 +2,7 @@
 
 ## Download
 
+Python 3 is needed to use the tool.
 Download the file clicking [here](https://github.com/bruno-chavez/shambler/archive/master.zip), or clone it from a terminal:
 
 ```
