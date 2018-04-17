@@ -2,7 +2,8 @@
 
 ## Download
 
-Python 3 is needed to use the tool.
+Requires Python 3 to be installed on your machine. You can install Python from [here](https://www.python.org/downloads/release/python-365/).
+
 Download the file clicking [here](https://github.com/bruno-chavez/shambler/archive/master.zip), or clone it from a terminal:
 
 ```
