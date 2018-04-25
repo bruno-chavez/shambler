@@ -4,12 +4,18 @@ json_file_name = input("Enter a name for the JSON file: ")
 json_key = input("Enter a key for the JSON file: ")
 
 
-# Places all lines of original file in a list.
-with open("./convert/" + original_file_name) as f:
-    original_file_list = f.readlines()
-f.close()
+# Places all lines of original file in a list, checks for correct file name.
+original_file_list = []
+try:
+    with open("./CopyFile/" + original_file_name) as f:
+        original_file_list = f.readlines()
+    f.close()
+except FileNotFoundError:
+    print(original_file_name + " was not found, please place the file you wish to copy in the CopyFile directory," +
+                               " or verify the name of it if it already is.")
+    quit()
 
-json_file = open("./convert/" + json_file_name + ".json", "w")
+json_file = open("./CopyFile/" + json_file_name + ".json", "w")
 
 
 # json_line creates the lines that are going to be placed on the json file.
@@ -58,4 +64,4 @@ json_file.write("]")
 json_file.close()
 
 
-print(json_file_name + ".json" + " created successfully, placed right next to " + original_file_name + ".")
+print(json_file_name + ".json" + " created successfully, placed right next to " + original_file_name)

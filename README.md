@@ -4,7 +4,7 @@
 
 Requires Python 3 to be installed on your machine. You can install Python from [here](https://www.python.org/downloads/release/python-365/).
 
-Download the file clicking [here](https://github.com/bruno-chavez/shambler/archive/master.zip), or clone it from a terminal:
+Download the file clicking [here](https://github.com/bruno-chavez/shambler/archive/master.zip), or clone it from a terminal by typing:
 
 ```
 $ git clone https://github.com/bruno-chavez/shambler.git
@@ -12,15 +12,16 @@ $ git clone https://github.com/bruno-chavez/shambler.git
 
 ## Usage
 
-To use `shambler` place the file you wish to convert inside the convert directory, the JSON file created will be placed right next to it, after that run the next command on a terminal:
+To use `shambler` place the file you wish to copy as a JSON file inside the CopyFile directory, the new file created will be placed right next to the original file, after that run the next command on a terminal:
 
 ```
 $ python shambler.py
+
 Enter file name: sample.txt
 Enter a name for the JSON file: newsample
 Enter a key for JSON format: quote
 
-newsample.json created succesfuly, placed right next to sample.txt.
+newsample.json created succesfuly, placed right next to sample.txt
 ```
 ## Format
 
