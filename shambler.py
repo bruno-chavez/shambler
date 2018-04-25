@@ -1,13 +1,15 @@
+# Necessary inputs for shambler to work with.
 original_file_name = input("Enter file name: ")
 json_file_name = input("Enter a name for the JSON file: ")
 json_key = input("Enter a key for the JSON file: ")
 
+
 # Places all lines of original file in a list.
-with open(original_file_name) as f:
+with open("./convert/" + original_file_name) as f:
     original_file_list = f.readlines()
 f.close()
 
-json_file = open(json_file_name + ".json", "w")
+json_file = open("./convert/" + json_file_name + ".json", "w")
 
 
 # json_line creates the lines that are going to be placed on the json file.
@@ -55,4 +57,5 @@ while counter3 < len(original_file_list):
 json_file.write("]")
 json_file.close()
 
-print(json_file_name + ".json" + " created successfully, placed right next to " + original_file_name)
+
+print(json_file_name + ".json" + " created successfully, placed right next to " + original_file_name + ".")

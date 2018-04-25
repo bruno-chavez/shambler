@@ -12,22 +12,25 @@ $ git clone https://github.com/bruno-chavez/shambler.git
 
 ## Usage
 
-To use `shambler` simply execute it as a regular python program:
+To use `shambler` place the file you wish to convert inside the convert directory, the JSON file created will be placed right next to it, after that run the next command on a terminal:
 
 ```
 $ python shambler.py
 Enter file name: sample.txt
-Enter a name for the JSON file: newtext
+Enter a name for the JSON file: newsample
 Enter a key for JSON format: quote
 
-newtext.json created succesfuly, placed right next to sample.txt
+newsample.json created succesfuly, placed right next to sample.txt.
 ```
+## Format
 
+`shambler` was made to resist things like double quotes or white spaces, things that normally can get in your way but don't worry about those and let it format those for you.
+
+You can run the sample text on the convert file to see what kind of special cases `shambler` can handle, if you find anything that you would like to be added please post an [issue](https://github.com/bruno-chavez/shambler/issues).
 ## Notes
 
-This is a pretty small project, with limited utility but hopefully its useful to someone, just like it was for me.
-
-Current version: `0.1`
+This is a pretty small project, with limited but hopefully some utility.
+Current version: `0.2`
 
 ## Contribute
 
