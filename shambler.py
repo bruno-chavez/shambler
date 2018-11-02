@@ -11,8 +11,8 @@ def shambler(source_file, target_filename, json_key):
     with open(source_file) as f:
         source_file_lines = f.readlines()
 
-    # Replaces all the double quotes to single quotes and strips leading/trailing whitespace and removes empty lines
-    source_file_lines = [line.strip().replace('\"', '\'')
+    # Replaces all the double quotes to single quotes and strips trailing whitespace and removes empty lines
+    source_file_lines = [line.rstrip().replace('\"', '\'')
                          for line in source_file_lines if line != ""]
 
     json_file = open(target_filename, "w")
