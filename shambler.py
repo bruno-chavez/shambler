@@ -47,15 +47,15 @@ def shambler_interactive():
         raise FileNotFoundError('%s was not found.' % file_path)
     json_file_name = _resolve_relative_file(json_file_name, extension=JSON_EXT)
 
-    shambler(file_path, json_file_name, json_key)
+    output_file = shambler(file_path, json_file_name, json_key)
 
-    print(json_file_name + " created successfully.")
+    print("%s created successfully." % output_file)
 
 
 def _resolve_key_list(json_key_user_input, num_lines):
     if ',' in json_key_user_input:
         # Split user input by commas
-        keys = ','.join(json_key_user_input.split(', ')).split(',')
+        keys = json_key_user_input.strip().split(',')
         keys = zip(keys[::2], keys[1::2])
 
         # Creating a list of each key entry multiplied by the number following it.
