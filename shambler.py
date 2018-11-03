@@ -5,7 +5,7 @@ JSON_EXT = '.json'
 JSON_FOLDER = 'JSON_Files'
 
 
-def shambler(source_file, target_filename, json_key):
+def shambler(source_file, target_file_path, json_key):
     # Places all lines of original file in a list, checks for correct file name.
     source_file_lines = []
 
@@ -16,7 +16,7 @@ def shambler(source_file, target_filename, json_key):
     source_file_lines = [line.rstrip().replace('\"', '\'')
                          for line in source_file_lines]
     source_file_lines = [line for line in source_file_lines if line]
-    json_file = open(target_filename, "w")
+    json_file = open(target_file_path, "w")
     json_file.write("[\n")
 
     num_lines = len(source_file_lines)
@@ -29,6 +29,7 @@ def shambler(source_file, target_filename, json_key):
 
     json_file.write("]")
     json_file.close()
+    return target_file_path
 
 
 def shambler_interactive():
