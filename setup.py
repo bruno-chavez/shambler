@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='shambler',
     version='0.2',
-    description="shambler is a pretty simple Python script, that creates a file with JSON's object format from a specified file.",  # Optional
+    description="shambler is a pretty simple Python script, that creates a file with JSON's object format from a specified file.",
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/bruno-chavez/shambler',
@@ -31,7 +31,7 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     entry_points={
         'console_scripts': [
-            'shambler=shambler:main',
+            'shambler=shambler:shambler_interactive',
         ],
     },
     project_urls={
