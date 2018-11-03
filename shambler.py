@@ -69,7 +69,7 @@ def _resolve_key_list(json_key_user_input, num_lines):
                   (abs(len(keys) - num_lines), keys[-1]))
             keys = keys + [keys[-1]] * abs(len(keys) - num_lines)
     else:
-        keys = (json_key_user_input, num_lines)
+        keys = [json_key_user_input] * num_lines
     return keys
 
 
