@@ -38,15 +38,24 @@ class TestShamblerPython(TestCase):
                      '',
                      json_key)
 
-    def test_simple_sample_file_contents(self):
-        output_file = shambler(json_file_simple, test_file_name, json_key)
-        with open(output_file, 'r') as output_contents:
-            self.assertEqual(output_contents.read(),
-                             '[\n\t{\n\t"new": "one_line_example"\n\t}\n]')
-        os.remove(output_file)
-
 
 class TestShamblerCVSKeyEntry(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        short_file_path = os.path.join(json_dir, json_file_short)
+        simple_file_path = os.path.join(json_dir, json_file_simple)
+
+        with open(short_file_path, 'w') as f:
+            f.writelines('\n'.join(['%s%d' % ('value', i) for i in range(1, 5)]))
+        with open(simple_file_path, 'w') as f:
+            f.write('one_line_example')
+        cls.fixtures = [short_file_path, simple_file_path]
+
+    @classmethod
+    def tearDownClass(cls):
+        for file_path in cls.fixtures:
+            os.remove(file_path)
+
     def test_simple_exact_keys(self):
         output_file = shambler(json_file_simple,
                                test_file_name,
