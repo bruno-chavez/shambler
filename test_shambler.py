@@ -7,6 +7,7 @@ from shambler import shambler
 json_dir = 'JSON_Files'
 json_file = 'sample.txt'
 json_file_simple = 'simple_sample.txt'
+json_file_short = 'short_sample.txt'
 json_file_tabbed = 'tabbed_sample.txt'
 test_file_name = 'test_normal_run'
 json_key = 'new'
@@ -89,6 +90,51 @@ class TestShamblerCVSKeyEntry(TestCase):
         with open(output_file, 'r') as output_contents:
             self.assertEqual(output_contents.read(),
                              '[\n\t{\n\t"key1": "one_line_example"\n\t}\n]')
+        os.remove(output_file)
+
+    def test_short_one_key(self):
+        output_file = shambler(json_file_short,
+                               test_file_name,
+                               'key1')
+        with open(output_file, 'r') as output_contents:
+            self.assertEqual(output_contents.read().count('key1'), 4)
+        os.remove(output_file)
+
+    def test_short_one_key_with_len(self):
+        output_file = shambler(json_file_short,
+                               test_file_name,
+                               'key1,1')
+        with open(output_file, 'r') as output_contents:
+            self.assertEqual(output_contents.read().count('key1'), 4)
+        os.remove(output_file)
+
+    def test_short_too_many_keys(self):
+        output_file = shambler(json_file_short,
+                               test_file_name,
+                               'key1,2,key2,5')
+        with open(output_file, 'r') as output_contents:
+            contents = output_contents.read()
+            self.assertEqual(contents.count('key1'), 2)
+            self.assertEqual(contents.count('key2'), 2)
+        os.remove(output_file)
+
+    def test_short_two_keys_first_key_long(self):
+        output_file = shambler(json_file_short,
+                               test_file_name,
+                               'key1,5,key2,5')
+        with open(output_file, 'r') as output_contents:
+            self.assertEqual(output_contents.read().count('key1'), 4)
+        os.remove(output_file)
+
+    def test_short_three_keys_1_short(self):
+        output_file = shambler(json_file_short,
+                               test_file_name,
+                               'key1,1,key2,1, key3,1')
+        with open(output_file, 'r') as output_contents:
+            contents = output_contents.read()
+            self.assertEqual(contents.count('key1'), 1)
+            self.assertEqual(contents.count('key2'), 1)
+            self.assertEqual(contents.count('key3'), 2)
         os.remove(output_file)
 
 

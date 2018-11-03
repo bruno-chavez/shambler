@@ -65,8 +65,6 @@ def _resolve_key_list(json_key_user_input, num_lines):
         
         # Now filling out the list with the last entry if it does not match the number of lines in the source file.
         if len(keys) < num_lines:
-            print('You entered %d too few keys, padding with %s' %
-                  (abs(len(keys) - num_lines), keys[-1]))
             keys = keys + [keys[-1]] * abs(len(keys) - num_lines)
     else:
         keys = [json_key_user_input] * num_lines
